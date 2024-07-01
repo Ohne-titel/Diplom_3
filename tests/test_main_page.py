@@ -1,4 +1,3 @@
-
 import allure
 import urls
 from pages.account_page import AccountPage
@@ -9,8 +8,9 @@ from conftest import driver
 class TestMainPage:
     @allure.step("Проверка перехода по клику на «Конструктор»")
     def test_go_to_constructor(self, driver):
+        account_page = AccountPage(driver)
+        account_page.go_in_to_personal_account()
         main_page = MainPage(driver)
-        main_page.go_in_to_personal_account()
         main_page.go_to_constructor()
 
         assert main_page.get_current_url() == urls.URL
@@ -52,8 +52,9 @@ class TestMainPage:
 
     @allure.step("Проверка успешного оформления заказа залогиненным пользователем")
     def test_create_order_logged_in_user(self, driver):
+        account_page = AccountPage(driver)
+        account_page.go_in_to_account()
         main_page = MainPage(driver)
-        main_page.go_in_to_account()
         account_page = AccountPage(driver)
         account_page.email_entry()
         account_page.password_entry()

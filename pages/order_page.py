@@ -1,5 +1,5 @@
+import time
 import allure
-
 from locators.order_page_locators import OrderPageLocators
 from pages.base_page import BasePage
 
@@ -46,10 +46,9 @@ class OrderPage(BasePage):
         return self.wait_and_find_element_located(OrderPageLocators.CREATED_TODAY).text
 
     @allure.step("Получение номера заказа в статусе в работе")
-    def get_number_order_in_progress(self):
-        self.visibility_of_element(OrderPageLocators.COMPLETED_ORDER)
-        self.visibility_of_element(OrderPageLocators.IN_PROGRESS_NUMBER)
-        return self.wait_and_find_element_located(OrderPageLocators.IN_PROGRESS_NUMBER).text
-
-
-
+    def get_number_order_in_progress(self, timeout=8):
+        start_time = time.time()
+        while time.time() - start_time < timeout:
+            order_in_progress = self.wait_and_find_element_located(OrderPageLocators.IN_PROGRESS_NUMBER).text
+            if order_in_progress != 'Все текущие заказы готовы!':
+                return order_in_progress

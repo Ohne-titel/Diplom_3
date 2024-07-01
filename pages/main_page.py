@@ -53,4 +53,5 @@ class MainPage(BasePage):
 
     @allure.step("Получение строки «Ваш заказ начали готовить»")
     def order_identifier(self):
+        self.visibility_of_element(MainPageLocators.ORDER_CREATING)
         return self.wait_and_find_element_located(MainPageLocators.ORDER_CREATING).text

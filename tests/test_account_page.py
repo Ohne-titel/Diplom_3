@@ -1,5 +1,4 @@
 import allure
-
 import urls
 from conftest import driver
 from pages.account_page import AccountPage

@@ -16,3 +16,6 @@ class AccountPageLocators:
     ORDER_HISTORY = (By.XPATH,"//a[contains(.,'История заказов')]")  # кнопка "История заказов"
     LOG_IN_BUTTON = (By.XPATH, "//button[contains(.,'Войти')]")  # кнопка "Войти"
     LOGOUT_BUTTON = (By.XPATH,"//button[contains(.,'Выход')]")   # кнопка "Выход"
+    PERSONAL_ACCOUNT = (By.XPATH, "//a[.='Личный Кабинет']")  # кнопка "Личный кабинет"
+    GO_IN_TO_ACCOUNT_BUTTON = (By.XPATH, "//button[.='Войти в аккаунт']")  # кнопка "Войти в аккаунт"
+

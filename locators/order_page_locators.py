@@ -6,7 +6,7 @@ class OrderPageLocators:
     ORDER_CARD = (By.XPATH, ".//li[contains(@class, 'OrderHistory_listItem__2x95r mb-6')][1]")   # карточка заказа
     ORDER_CARD_ELEMENT = (By.XPATH, ".//p[contains(text(), 'Cостав')]")   # элемент карточки заказа
     ORDER_HISTORY = (By.XPATH, ".//a[contains(text(), 'История заказов')]")  # кнопка "История заказов"
-    ORDER_CROSS_BUTTON = (By.XPATH, ".//button[@type='button' and contains(@class, 'Modal_modal__close')]")  # кнопка "крестик" на модальном коне
+    ORDER_CROSS_BUTTON = (By.XPATH, './/button[contains(@class, "modal__close")]')  # кнопка "крестик" на модальном коне
     ORDER_NUMBER = (By.XPATH, ".//h2[@class='Modal_modal__title_shadow__3ikwq Modal_modal__title__2L34m text "
                               "text_type_digits-large mb-8']") # номер заказа
     ORDERS_LIST = (By.XPATH, ".//p[@class='text text_type_digits-default']") # список заказов

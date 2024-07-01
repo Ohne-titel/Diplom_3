@@ -1,7 +1,5 @@
-import time
 
 import allure
-
 import urls
 from pages.account_page import AccountPage
 from pages.main_page import MainPage
@@ -25,8 +23,8 @@ class TestOrderFeed:
     def test_checking_the_display_of_users_orders(self, driver):
         order_page = OrderPage(driver)
         order_page.wait_for_url(urls.URL)
-        order_page.go_in_to_personal_account()
         account_page = AccountPage(driver)
+        account_page.go_in_to_personal_account()
         account_page.email_entry()
         account_page.password_entry()
         account_page.click_entry_button()
@@ -46,8 +44,8 @@ class TestOrderFeed:
     def test_check_the_counter_increment(self, driver):
         order_page = OrderPage(driver)
         order_page.wait_for_url(urls.URL)
-        order_page.go_in_to_personal_account()
         account_page = AccountPage(driver)
+        account_page.go_in_to_personal_account()
         account_page.email_entry()
         account_page.password_entry()
         account_page.click_entry_button()
@@ -70,8 +68,8 @@ class TestOrderFeed:
     def test_check_the_counter_increment_today(self, driver):
         order_page = OrderPage(driver)
         order_page.wait_for_url(urls.URL)
-        order_page.go_in_to_personal_account()
         account_page = AccountPage(driver)
+        account_page.go_in_to_personal_account()
         account_page.email_entry()
         account_page.password_entry()
         account_page.click_entry_button()
@@ -91,11 +89,12 @@ class TestOrderFeed:
 
         assert now > current_number
 
+    @allure.step("Проверка того, что после оформления заказа его номер появляется в разделе В работе.")
     def test_order_number_appears_in_progress(self, driver):
         order_page = OrderPage(driver)
         order_page.wait_for_url(urls.URL)
-        order_page.go_in_to_personal_account()
         account_page = AccountPage(driver)
+        account_page.go_in_to_personal_account()
         account_page.email_entry()
         account_page.password_entry()
         account_page.click_entry_button()
@@ -107,7 +106,6 @@ class TestOrderFeed:
         order_page.click_order_cross_button()
         order_number = order_page.get_order_number()
         main_page.go_to_order_feed()
-        time.sleep(5)
         in_progress = order_page.get_number_order_in_progress()
 
         assert order_number in in_progress

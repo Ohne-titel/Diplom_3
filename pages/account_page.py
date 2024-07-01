@@ -1,5 +1,4 @@
 import allure
-
 from data import email, password
 from locators.account_page_locators import AccountPageLocators
 from pages.base_page import BasePage
@@ -61,3 +60,11 @@ class AccountPage(BasePage):
     @allure.title('Логаут')
     def logout_account(self):
         self.wait_and_find_element_located(AccountPageLocators.LOGOUT_BUTTON).click()
+
+    @allure.title('Переход по клику на «Личный кабинет»')
+    def go_in_to_personal_account(self):
+        self.wait_and_find_element_located(AccountPageLocators.PERSONAL_ACCOUNT).click()
+
+    @allure.step("Клик по кнопке «Войти в аккаунт»")
+    def go_in_to_account(self):
+        self.wait_and_find_element_located(AccountPageLocators.GO_IN_TO_ACCOUNT_BUTTON).click()
