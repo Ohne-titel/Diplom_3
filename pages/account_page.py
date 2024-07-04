@@ -1,4 +1,6 @@
 import allure
+
+import data
 from data import email, password
 from locators.account_page_locators import AccountPageLocators
 from pages.base_page import BasePage
@@ -18,12 +20,12 @@ class AccountPage(BasePage):
 
     @allure.step("Ввод имэйла для восстановления пароля, нажатие кнопки «Восстановить» ")
     def reset_password(self):
-        self.wait_and_find_element_located(AccountPageLocators.EMAIL_FIELD).send_keys("miagkova.elina@yandex.ru")
+        self.wait_and_find_element_located(AccountPageLocators.EMAIL_FIELD).send_keys(data.email)
         self.wait_and_find_element_located(AccountPageLocators.RESET_PASSWORD_BUTTON).click()
 
     @allure.step("Ввод нового пароля")
     def set_new_passsword(self):
-        self.wait_and_find_element_located(AccountPageLocators.PASSWORD_FIELD).send_keys("7777777")
+        self.wait_and_find_element_located(AccountPageLocators.PASSWORD_FIELD).send_keys(data.new_password)
 
     @allure.step('Нажимаем  кнопку "Показать/Скрыть" пароль')
     def click_eye_button(self):
