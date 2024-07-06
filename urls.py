@@ -1,0 +1,6 @@
+URL = 'https://stellarburgers.nomoreparties.site/'
+FORGOT_PASSWORD_URL = f'{URL}forgot-password'
+RESET_PASSWORD_URL = f'{URL}reset-password'
+ORDER_HISTORY_URL = f'{URL}account/order-history'
+LOGIN_URL = f'{URL}login'
+ORDER_FEED_URL = f'{URL}feed'
